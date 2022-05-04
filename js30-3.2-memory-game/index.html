@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>What's for dinner?</title>
+    <link rel="stylesheet" href="./style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <audio src="./assets/image/449359103103a80.mp3" id="myaudio" autoplay="autoplay" loop = "true" volume = "0.5"></audio>    
+    <div class="restart">New Game</div>
+    <div class="moves">Moves: 0</div>
+    <div class="timer-container">
+        <span class="timer"><i class="hour-start"></i> Timer: 00:00</span>
+    </div>
+    <div id="mybtn" ><img src="./assets/image/volume-on.png" class="volume"></div>
+    <div class="modal-result-wrapper">
+        <div class="overlay"></div>
+        <div class="modal-window">
+            <div class="mod-wr">
+            <div class = "text"></div>
+            <div class = "buttons">            
+            <div class="btn-close">Start New Game</div>
+            <section id="previous-score__container" class="previous-score__container">                
+                <table id="previous-score__table" class="previous-score__table">
+                  <tr>
+                    <th colspan="4">
+                      Your previous score
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>Player
+                    </th>
+                    <th>Time 
+                    </th>
+                    <th>Moves 
+                    </th>           
+                  </tr>
+                </table>
+              </section>
+            </div>
+        </div>
+        </div>
+    </div>    
+    <section class="memory-game" onclick="cliCk();">
+        <div class="card" data-food="sandwich">
+          <img class="front" src="./assets/image/food1.png" alt="food">
+          <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="sandwich">
+            <img class="front" src="./assets/image/food1.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="sup" >
+            <img class="front" src="./assets/image/food2.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="sup">
+            <img class="front" src="./assets/image/food2.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="pasta">
+            <img class="front" src="./assets/image/food3.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="pasta">
+            <img class="front" src="./assets/image/food3.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="caviar">
+            <img class="front" src="./assets/image/food4.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="caviar">
+            <img class="front" src="./assets/image/food4.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="cream-sup" >
+            <img class="front" src="./assets/image/food5.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="cream-sup">
+            <img class="front" src="./assets/image/food5.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="tortilla" >
+            <img class="front" src="./assets/image/food6.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="tortilla" >
+            <img class="front" src="./assets/image/food6.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="fish" >
+            <img class="front" src="./assets/image/food7.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="fish" >
+            <img class="front" src="./assets/image/food7.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="pasta2" >
+            <img class="front" src="./assets/image/food10.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="pasta2" >
+            <img class="front" src="./assets/image/food10.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="egg" >
+            <img class="front" src="./assets/image/food11.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="egg" >
+            <img class="front" src="./assets/image/food11.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="paper" >
+            <img class="front" src="./assets/image/food12.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="paper" >
+            <img class="front" src="./assets/image/food12.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="meet" >
+            <img class="front" src="./assets/image/food13.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="meet" >
+            <img class="front" src="./assets/image/food13.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="chick" >
+            <img class="front" src="./assets/image/food14.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="chick" >
+            <img class="front" src="./assets/image/food14.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="rulet" >
+            <img class="front" src="./assets/image/food15.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="rulet" >
+            <img class="front" src="./assets/image/food15.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="pasta3" >
+            <img class="front" src="./assets/image/food16.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="pasta3" >
+            <img class="front" src="./assets/image/food16.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+        <div class="card" data-food="carrot" >
+            <img class="front" src="./assets/image/food9.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">
+        </div>
+      
+        <div class="card" data-food="carrot" >
+            <img class="front" src="./assets/image/food9.png" alt="food">
+            <img class="back" src="./assets/image/клош.jpg" alt="Memory Card">            
+        </div>
+      </section>
+      <footer class="footer">
+		<div class="footer_container">
+            <a href="https://github.com/Kate4ka007" target = "_blank" class="github"><img src="./assets/image/github1.png" width="50"></a>
+			<a href="https://rs.school/js-stage0/" target = "_blank" class="footer_link"><img src="./assets/image/rs_school_js.png" alt="logo" width="110" class="logo_footer"></a>
+            <div class="year">2022</div>
+		</div>        
+    </footer>    
+<script src="./index.js"></script>  
+</body>
+</html>
