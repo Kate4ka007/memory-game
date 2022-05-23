@@ -19,15 +19,15 @@ function flipCard() {
   this.classList.add('flip');
 
   if (!hasFlippedCard) {
-    if(move == 0) {
+    if (move == 0) {
       timer()
     }
-  hasFlippedCard = true;
-  firstCard = this;
-  return;    
+    hasFlippedCard = true;
+    firstCard = this;
+    return;
   }
 
-  secondCard = this;   
+  secondCard = this;
   move++;
   console.log(move)
   moves.innerHTML = `Moves: ${move}`
@@ -39,13 +39,13 @@ function checkForMatch() {
     disableCards();
     totalChecked++
     console.log(`совпадения: ${totalChecked}`)
-  if(totalChecked == 15) {
-    console.log('Winner');
-    modalWindow.style.display = "block"
-    stopTime();
-    text.innerHTML = `<p>You did it!!!</p><p></p><p>You completed the game in ${move} moves.</p><p></p><p>Will you try again?</p>`
-    recordLastScore()
-  }
+    if (totalChecked == 15) {
+      console.log('Winner');
+      modalWindow.style.display = "block"
+      stopTime();
+      text.innerHTML = `<p>You did it!!!</p><p></p><p>You completed the game in ${move} moves.</p><p></p><p>Will you try again?</p>`
+      recordLastScore()
+    }
     return;
   }
   unflipCards();
@@ -73,8 +73,8 @@ function resetBoard() {
 
 (function shuffle() {
   cards.forEach(card => {
-  let ramdomPos = Math.floor(Math.random() * 30);
-  card.style.order = ramdomPos;
+    let ramdomPos = Math.floor(Math.random() * 30);
+    card.style.order = ramdomPos;
   });
 })();
 
@@ -88,7 +88,7 @@ btn.addEventListener('click', () => {
 
 btnNewGame.addEventListener('click', () => {
   location.reload()
-  modalWindow.style.display = "none"    
+  modalWindow.style.display = "none"
 })
 
 const timeCounter = document.querySelector(".timer");
@@ -99,18 +99,18 @@ let seconds = 0;
 let timeStart = false;
 
 function timer() {
-	time = setInterval(function() {
-		seconds++;
-			if (seconds === 60) {
-				minutes++;
-				seconds = 0;
-			}		
-		timeCounter.innerHTML = "<i class='hour-start'></i>" + " Timer: " + minutes + " min " + seconds + " sec" ;
-	}, 1000);
+  time = setInterval(function () {
+    seconds++;
+    if (seconds === 60) {
+      minutes++;
+      seconds = 0;
+    }
+    timeCounter.innerHTML = "<i class='hour-start'></i>" + " Timer: " + minutes + " min " + seconds + " sec";
+  }, 1000);
 }
 
 function stopTime() {
-	clearInterval(time);
+  clearInterval(time);
 }
 
 const PREVIOUS_SCORE_TABLE = document.getElementById('previous-score__table');
@@ -125,9 +125,10 @@ function recordLastScore() {
   }
   if (localStorage.getItem('score')) {
     let value = localStorage.getItem('score')
-    newLineScore = value + '<tr><td>' + player + '</td><td>' + minutes + ' min ' + seconds + ' sec</td><td>' + move ;
+    newLineScore = value + '<tr><td>' + player + '</td><td>' + minutes + ' min ' + seconds + ' sec</td><td>' + move;
   } else {
-  newLineScore = '<tr><td>' + player + '</td><td>' + minutes + ' min ' + seconds + ' sec</td><td>' + move ;}
+    newLineScore = '<tr><td>' + player + '</td><td>' + minutes + ' min ' + seconds + ' sec</td><td>' + move;
+  }
   PREVIOUS_SCORE_TABLE.insertAdjacentHTML('beforeend', newLineScore);
   PREVIOUS_SCORE_CNT.style.display = 'block';
   localStorage.setItem('score', newLineScore);
@@ -135,11 +136,11 @@ function recordLastScore() {
 
 const volume = document.querySelector('.volume');
 
-document.getElementById("mybtn").onclick = function()  {
+document.getElementById("mybtn").onclick = function () {
   let myaudio = document.getElementById("myaudio");
-  if(myaudio.paused == true) {
+  if (myaudio.paused == true) {
     document.getElementById("myaudio").play();
-      volume.src = './assets/image/volume-on.png';
+    volume.src = './assets/image/volume-on.png';
   }
   else if (myaudio.paused == false) {
     document.getElementById("myaudio").pause();
